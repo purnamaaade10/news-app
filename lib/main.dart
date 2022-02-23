@@ -49,6 +49,9 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  //int prima = 0;
+  //String _teks = "Simpan";
+  String _text = "Ganjil";
 
   void _incrementCounter() {
     setState(() {
@@ -56,8 +59,42 @@ class _MyHomePageState extends State<MyHomePage> {
       // changed in this State, which causes it to rerun the build method below
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
+      // called again, and so nothing would
       _counter++;
+      if(_counter>20){
+        _counter = 0;
+      }
+      /*if(_counter%2 == 0){
+        _text = "Genap";
+      }else{
+        _text = "Ganjil";
+      }*/
+      _text = "Ganjil";
+      for(int i=0; i<=_counter; i++){
+        if(i%2 != 0){
+          _text += '${i}, ';
+        }
+      }
+      /*_teks = "Prima :";
+      for(int i=0; i<_counter; i++){
+        for(int n=1; n<=i; n++){
+          if(i%n == 0){
+            prima++;
+          }
+        }
+        if(prima==2){
+          _teks += '${i}, ';
+        }
+        prima = 0;
+      }
+
+
+      _text = "Genap kelipatan 3: ";
+      for(int i=1; i<=_counter; i++){
+      if(i%3 == 0 && i%2 == 0){
+        _text += '${i}, ';
+      }
+      }*/
     });
   }
 
@@ -102,6 +139,14 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+            Text(
+              _text,
+              style: Theme.of(context).textTheme.headline4,
+            ),
+            /*Text(
+              _teks,
+              style: Theme.of(context).textTheme.headline4,
+            )*/
           ],
         ),
       ),
